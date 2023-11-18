@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.With;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-// @NoArgsConstructor
+@NoArgsConstructor
 @With
 
 public class ProductRepo {
@@ -46,6 +47,28 @@ public class ProductRepo {
     }
 
     // method for checking by name
+//    public Product getProductByName(String name) {
+//        for (Product p : products) {
+//            if (p.getName().equals(name)) {
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
+
+    public List<Product> getProductsByName(List<String> productNames) {
+        List<Product> result = new ArrayList<>();
+
+        for (String productName : productNames) {
+            Product product = getProductByName(productName);
+            if (product != null) {
+                result.add(product);
+            }
+        }
+
+        return result;
+    }
+
     public Product getProductByName(String name) {
         for (Product p : products) {
             if (p.getName().equals(name)) {
@@ -64,12 +87,5 @@ public class ProductRepo {
         }
         return true; // product found
     }
-
-
-
-
-
-
-
 
 }
