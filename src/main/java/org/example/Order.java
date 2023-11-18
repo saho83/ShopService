@@ -3,17 +3,18 @@ package org.example;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.With;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-// @NoArgsConstructor
+@NoArgsConstructor
 @With
 public class Order {
 
-   private String ID;
-   private List<Product> products;
+   public String ID;
+   public List<Product> products;
 
 }
